@@ -16,11 +16,19 @@ module.exports = appInfo => {
   config.keys = appInfo.name + '_1570848639065_5226';
 
   // add your middleware config here
-  config.middleware = [];
+  config.middleware = [ 'tokenVerify' ];
 
-  config.appid = 'wx54ce5f7c9692984d';
+  config.tokenVerify = {
+    enable: true, // 是否开启该中间件，不写默认开启
+    // match: ['/admin'], // 只匹配指定路由，反之如果只忽略指定路由，可以用ignore
+    ignore: [ '/code2Session' ], // 不要与match一起使用，避免冲突
+  };
 
-  config.appsecret = 'c53779a6f72a6c0c2cee63d615c7cc09';
+  config.wxHost = 'https://api.weixin.qq.com';
+
+  config.wx_appid = 'wx54ce5f7c9692984d';
+
+  config.wx_appsecret = 'c53779a6f72a6c0c2cee63d615c7cc09';
 
   config.security = {
     csrf: {

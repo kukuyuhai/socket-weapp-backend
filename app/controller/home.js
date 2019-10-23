@@ -8,6 +8,11 @@ class HomeController extends Controller {
     await app.redis.set('token', 'access_token');
     ctx.body = 'access_token';
   }
+
+  async join() {
+    const { ctx } = this;
+    ctx.body = 'access_token';
+  }
 }
 
 module.exports = HomeController;
